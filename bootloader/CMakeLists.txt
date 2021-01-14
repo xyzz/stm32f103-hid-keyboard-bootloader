@@ -63,3 +63,5 @@ endfunction(add_bootloader)
 
 add_bootloader(generic)
 add_bootloader(vial_test)
+add_bootloader(xyz60)
+add_bootloader(xyz8x)
