@@ -96,4 +96,11 @@ void setupGPIO(void) {
     /* Set (BL_OUTPUT_BANK,BL_OUTPUT_PIN) as output */
     cr = *GPIO_CR(BL_OUTPUT_BANK,BL_OUTPUT_PIN) & crMask(BL_OUTPUT_PIN);
     *GPIO_CR(BL_OUTPUT_BANK,BL_OUTPUT_PIN) = cr | CR_OUTPUT_PP << CR_SHITF(BL_OUTPUT_PIN);
+
+#ifdef TARGET_MATRIX
+    /* matrix A8 output low to enable usb */
+    cr = *GPIO_CR(GPIOA,8) & crMask(8);
+    *GPIO_CR(GPIOA,8) = cr | CR_OUTPUT_PP << CR_SHITF(8);
+    GPIOA->BRR = (1 << 8);
+#endif
 }

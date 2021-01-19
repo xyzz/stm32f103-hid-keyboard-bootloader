@@ -34,6 +34,13 @@
 #define BL_OUTPUT_PIN 15
 #define BL_INPUT_BANK GPIOA
 #define BL_INPUT_PIN 2
+#elif defined(TARGET_MATRIX)
+#define VIAL_KEYBOARD_UID {0xFC, 0xDA, 0xDE, 0xC7, 0xD0, 0xFA, 0x52, 0x42}
+// output high on col, input on row
+#define BL_OUTPUT_BANK GPIOC
+#define BL_OUTPUT_PIN 5
+#define BL_INPUT_BANK GPIOA
+#define BL_INPUT_PIN 5
 #else
 #error Unknown target
 #endif
